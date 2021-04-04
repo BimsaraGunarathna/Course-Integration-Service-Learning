@@ -1,0 +1,1862 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/20/2021 4:49:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LBVLVA6"
+  DTS:CreatorName="DESKTOP-LBVLVA6\bimsa"
+  DTS:DTSID="{BE92E5F0-BD67-4C29-A3E9-931456C0CD1A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{8DDF760D-55BF-40B2-8B7A-AAB26AC457CC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{ABA910E0-7DEC-40AD-9F24-AD4A29885CA5}"
+      DTS:ObjectName="DESKTOP-LBVLVA6\SQLEXPRESS.Course">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-LBVLVA6\SQLEXPRESS;Initial Catalog=Course;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load FactCourse table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9398ADD5-7111-463A-B7C8-968AF57CDA32}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load FactCourse table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load FactCourse table\Get Staging Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get Staging Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCourse table\Get Staging Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PriceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[PriceID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PriceID]"
+                      name="PriceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PublishedYearID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[PublishedYearID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PublishedYearID]"
+                      name="PublishedYearID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[RatingID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[RatingID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[RatingID]"
+                      name="RatingID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_subscribers]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_subscribers]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_subscribers]"
+                      name="num_subscribers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_reviews]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_reviews]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_reviews]"
+                      name="num_reviews"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_published_lectures]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_published_lectures]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_published_lectures]"
+                      name="num_published_lectures"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[discount_price__amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[discount_price__amount]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[discount_price__amount]"
+                      name="discount_price__amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="r8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="255"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[url]"
+                      dataType="wstr"
+                      length="255"
+                      name="url" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[is_paid]"
+                      dataType="bool"
+                      name="is_paid" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_subscribers]"
+                      dataType="r8"
+                      name="num_subscribers" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[avg_rating]"
+                      dataType="r8"
+                      name="avg_rating" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[avg_rating_recent]"
+                      dataType="r8"
+                      name="avg_rating_recent" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      dataType="r8"
+                      name="rating" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_reviews]"
+                      dataType="r8"
+                      name="num_reviews" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[is_wishlisted]"
+                      dataType="bool"
+                      name="is_wishlisted" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_published_lectures]"
+                      dataType="r8"
+                      name="num_published_lectures" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[num_published_practice_tests]"
+                      dataType="r8"
+                      name="num_published_practice_tests" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[created]"
+                      dataType="wstr"
+                      length="255"
+                      name="created" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[published_time]"
+                      dataType="wstr"
+                      length="255"
+                      name="published_time" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[discount_price__amount]"
+                      dataType="r8"
+                      name="discount_price__amount" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[discount_price__currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="discount_price__currency" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[discount_price__price_string]"
+                      dataType="wstr"
+                      length="255"
+                      name="discount_price__price_string" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[price_detail__amount]"
+                      dataType="r8"
+                      name="price_detail__amount" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[price_detail__currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="price_detail__currency" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[price_detail__price_string]"
+                      dataType="wstr"
+                      length="255"
+                      name="price_detail__price_string" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[published_year]"
+                      dataType="r8"
+                      name="published_year" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[created_year]"
+                      dataType="r8"
+                      name="created_year" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[PriceID]"
+                      dataType="i4"
+                      name="PriceID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[PublishedYearID]"
+                      dataType="i4"
+                      name="PublishedYearID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].ExternalColumns[RatingID]"
+                      dataType="i4"
+                      name="RatingID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="r8"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[PriceID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[PriceID]"
+                      name="PriceID" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[PublishedYearID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[PublishedYearID]"
+                      name="PublishedYearID" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[RatingID]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[RatingID]"
+                      name="RatingID" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_subscribers]"
+                      dataType="r8"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_subscribers]"
+                      name="num_subscribers" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_reviews]"
+                      dataType="r8"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_reviews]"
+                      name="num_reviews" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_published_lectures]"
+                      dataType="r8"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[num_published_lectures]"
+                      name="num_published_lectures" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[discount_price__amount]"
+                      dataType="r8"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Error Output].Columns[discount_price__amount]"
+                      name="discount_price__amount" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactCourse table\Load FactCourse Data"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load FactCourse Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[FactCourse]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactCourse table\Load FactCourse Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[PriceID]"
+                      cachedDataType="i4"
+                      cachedName="PriceID"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[PriceID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PriceID]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[PublishedYearID]"
+                      cachedDataType="i4"
+                      cachedName="PublishedYearID"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[PublishedYearID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[PublishedYearID]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[RatingID]"
+                      cachedDataType="i4"
+                      cachedName="RatingID"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[RatingID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[RatingID]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[num_subscribers]"
+                      cachedDataType="r8"
+                      cachedName="num_subscribers"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_subscribers]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_subscribers]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[num_reviews]"
+                      cachedDataType="r8"
+                      cachedName="num_reviews"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_reviews]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_reviews]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[num_published_lectures]"
+                      cachedDataType="r8"
+                      cachedName="num_published_lectures"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_published_lectures]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[num_published_lectures]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[discount_price__amount]"
+                      cachedDataType="r8"
+                      cachedName="discount_price__amount"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[discount_price__amount]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[discount_price__amount]" />
+                    <inputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="r8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[Source_RowID]"
+                      lineageId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[CourseID]"
+                      dataType="i4"
+                      name="CourseID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[Source_RowID]"
+                      dataType="i4"
+                      name="Source_RowID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[PriceID]"
+                      dataType="i4"
+                      name="PriceID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[PublishedYearID]"
+                      dataType="i4"
+                      name="PublishedYearID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[RatingID]"
+                      dataType="i4"
+                      name="RatingID" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_subscribers]"
+                      dataType="i4"
+                      name="num_subscribers" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_reviews]"
+                      dataType="i4"
+                      name="num_reviews" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[num_published_lectures]"
+                      dataType="i4"
+                      name="num_published_lectures" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input].ExternalColumns[discount_price__amount]"
+                      dataType="i4"
+                      name="discount_price__amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactCourse table\Load FactCourse Data.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Load FactCourse Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactCourse table\Load FactCourse Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactCourse table\Load FactCourse Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load FactCourse table.Paths[OLE DB Source Output]"
+              endId="Package\Load FactCourse table\Load FactCourse Data.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load FactCourse table\Get Staging Data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Price Dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C478BFAC-D8D6-4138-8AF5-651909C63910}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Price Dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Price Dimension\Get Prices from Staging table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get Prices from Staging table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+     DISTINCT [price_detail__amount]
+FROM [Course].[Source_Data_Staging]
+ORDER BY [price_detail__amount]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Price Dimension\Get Prices from Staging table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output].ExternalColumns[price_detail__amount]"
+                      lineageId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output].ExternalColumns[price_detail__amount]"
+                      dataType="r8"
+                      name="price_detail__amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[price_detail__amount]"
+                      dataType="r8"
+                      lineageId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[price_detail__amount]"
+                      name="price_detail__amount" />
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Price Dimension\Load Prices to DimPrice table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Prices to DimPrice table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[DimPrice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Price Dimension\Load Prices to DimPrice table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="r8"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output].Columns[price]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input].ExternalColumns[PriceID]"
+                      dataType="i4"
+                      name="PriceID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="i4"
+                      name="Price" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Price Dimension\Load Prices to DimPrice table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Load Prices to DimPrice table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Price Dimension\Load Prices to DimPrice table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Price Dimension\Load Prices to DimPrice table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Price Dimension\Load Prices to DimPrice table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Price Dimension.Paths[OLE DB Source Output]"
+              endId="Package\Load Price Dimension\Load Prices to DimPrice table.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Price Dimension\Get Prices from Staging table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load PublishedYear Dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{a6d38b5d-d8fa-4d0e-80f0-013daa8356ce}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load PublishedYear Dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get PublishedYears from Staging table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+     DISTINCT [published_year]
+FROM [Course].[Source_Data_Staging]
+ORDER BY [published_year]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output].Columns[published_year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output].ExternalColumns[published_year]"
+                      lineageId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output].Columns[published_year]"
+                      name="published_year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output].ExternalColumns[published_year]"
+                      dataType="r8"
+                      name="published_year" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[published_year]"
+                      dataType="r8"
+                      lineageId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[published_year]"
+                      name="published_year" />
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load PublishedYears to DimPublishedYear table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[DimPublishedYear]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input].Columns[published_year]"
+                      cachedDataType="r8"
+                      cachedName="published_year"
+                      externalMetadataColumnId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input].ExternalColumns[PublishedYear]"
+                      lineageId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output].Columns[published_year]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input].ExternalColumns[PublishedYearID]"
+                      dataType="i4"
+                      name="PublishedYearID" />
+                    <externalMetadataColumn
+                      refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input].ExternalColumns[PublishedYear]"
+                      dataType="i4"
+                      name="PublishedYear" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load PublishedYear Dimension.Paths[OLE DB Source Output]"
+              endId="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Rating Dimension"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{026a8610-55ba-45ca-a87d-54d3e6dfbd81}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Rating Dimension"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Rating Dimension\Get Rating from Staging table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get Rating from Staging table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
+     DISTINCT [rating]
+FROM [Course].[Source_Data_Staging]
+ORDER BY [rating]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Rating Dimension\Get Rating from Staging table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output].Columns[rating]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      lineageId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output].Columns[rating]"
+                      name="rating"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output].ExternalColumns[rating]"
+                      dataType="r8"
+                      name="rating" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      dataType="r8"
+                      lineageId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[rating]"
+                      name="rating" />
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Rating Dimension\Load Rating to DimRating table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load Rating to DimRating table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Course].[DimRating]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Rating Dimension\Load Rating to DimRating table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LBVLVA6\SQLEXPRESS.Course]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input].Columns[rating]"
+                      cachedDataType="r8"
+                      cachedName="rating"
+                      externalMetadataColumnId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      lineageId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output].Columns[rating]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input].ExternalColumns[RatingID]"
+                      dataType="i4"
+                      name="RatingID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      dataType="r8"
+                      name="Rating" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Rating Dimension\Load Rating to DimRating table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Load Rating to DimRating table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Rating Dimension\Load Rating to DimRating table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Rating Dimension\Load Rating to DimRating table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Rating Dimension\Load Rating to DimRating table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Rating Dimension.Paths[OLE DB Source Output]"
+              endId="Package\Load Rating Dimension\Load Rating to DimRating table.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load Rating Dimension\Get Rating from Staging table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update PriceID into Staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FCEA5698-FBE9-4851-A032-7E28E9A63D4E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update PriceID into Staging table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ABA910E0-7DEC-40AD-9F24-AD4A29885CA5}"
+          SQLTask:SqlStatementSource="UPDATE [Course].[Source_Data_Staging]&#xA;SET Course.Source_Data_Staging.PriceID = Course.DimPrice.PriceID&#xA;FROM Course.Source_Data_Staging&#xA;INNER JOIN Course.DimPrice ON Course.Source_Data_Staging.price_detail__amount = Course.DimPrice.Price&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update PublishedYearID into Staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2e6f3ec2-80d9-424d-b58b-795293e6e387}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update PublishedYearID into Staging table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ABA910E0-7DEC-40AD-9F24-AD4A29885CA5}"
+          SQLTask:SqlStatementSource="UPDATE [Course].[Source_Data_Staging]&#xA;SET Course.Source_Data_Staging.PublishedYearID = Course.DimPublishedYear.PublishedYearID&#xA;FROM Course.Source_Data_Staging&#xA;INNER JOIN Course.DimPublishedYear ON Course.Source_Data_Staging.published_year = Course.DimPublishedYear.PublishedYear&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update RatingID into Staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0f184be8-eebb-4e6d-8e76-f2ff374766d8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update RatingID into Staging table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ABA910E0-7DEC-40AD-9F24-AD4A29885CA5}"
+          SQLTask:SqlStatementSource="UPDATE [Course].[Source_Data_Staging]&#xA;SET Course.Source_Data_Staging.RatingID = Course.DimRating.RatingID&#xA;FROM Course.Source_Data_Staging&#xA;INNER JOIN Course.DimRating ON Course.Source_Data_Staging.rating = Course.DimRating.Rating" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{872BE610-8BA4-48A2-8EC9-C78058332DB1}"
+      DTS:From="Package\Load Price Dimension"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update PriceID into Staging table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{048C5B42-E01E-42B2-A5EE-AAF1C9F29F72}"
+      DTS:From="Package\Update PriceID into Staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load PublishedYear Dimension" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2BB04348-4065-42FD-B468-1EFBD1AF3609}"
+      DTS:From="Package\Load PublishedYear Dimension"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Update PublishedYearID into Staging table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{a3b5c778-95d0-4187-b541-4cc039a819fe}"
+      DTS:From="Package\Load Rating Dimension"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 1"
+      DTS:To="Package\Update RatingID into Staging table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{5BF017FB-4719-413C-90A1-336A6A7EB283}"
+      DTS:From="Package\Update PublishedYearID into Staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Load Rating Dimension" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{E8137BC0-E6D5-4F9E-98E1-DD9C3CC7A2EF}"
+      DTS:From="Package\Update RatingID into Staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Load FactCourse table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Load Price Dimension"
+          TopLeft="109.166662328773,128.866667541398" />
+        <NodeLayout
+          Size="232,41.6"
+          Id="Package\Update PriceID into Staging table"
+          TopLeft="370.833318597741,124.800000991821" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="318.766662328773,147.63333426661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.0666562689679,0"
+              Start="0,0"
+              End="44.5666562689679,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.5666562689679,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\Load PublishedYear Dimension"
+          TopLeft="653.3333073722,124.800000991821" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="602.833318597741,145.600000991821">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.4999887744592,0"
+              Start="0,0"
+              End="42.9999887744592,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="42.9999887744592,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\Update PublishedYearID into Staging table"
+          TopLeft="614.999975562096,193.187880323198" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="765.3333073722,166.400000991821">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.3333318101041,26.7878793313771"
+              Start="0,0"
+              End="-12.3333318101041,19.2878793313771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.39393966568856" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.39393966568856"
+                    Point2="0,13.3939396656886"
+                    Point3="-4,13.3939396656886" />
+                  <mssgle:LineSegment
+                    End="-8.33333181010414,13.3939396656886" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.33333181010414,13.3939396656886"
+                    Point2="-12.3333318101041,13.3939396656886"
+                    Point3="-12.3333318101041,17.3939396656886" />
+                  <mssgle:LineSegment
+                    End="-12.3333318101041,19.2878793313771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Load Rating Dimension"
+          TopLeft="384.545439264992,195.921213277711" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Update RatingID into Staging table"
+          TopLeft="106.666662428114,197.733334504234" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1]"
+          TopLeft="384.545439264992,217.627273890972">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.4787768368772,0"
+              Start="0,0"
+              End="-31.9787768368772,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-31.9787768368772,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="614.999975562096,215.354546800455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.0545362971047,0"
+              Start="0,0"
+              End="-36.5545362971047,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.5545362971047,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Load FactCourse table"
+          TopLeft="115.83332873053,277.200000619888" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="225.866662428114,239.333334504234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.4333336975842,37.8666661156547"
+              Start="0,0"
+              End="-18.4333336975842,30.3666661156547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9333330578274" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9333330578274"
+                    Point2="0,18.9333330578274"
+                    Point3="-4,18.9333330578274" />
+                  <mssgle:LineSegment
+                    End="-14.4333336975842,18.9333330578274" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.4333336975842,18.9333330578274"
+                    Point2="-18.4333336975842,18.9333330578274"
+                    Point3="-18.4333336975842,22.9333330578274" />
+                  <mssgle:LineSegment
+                    End="-18.4333336975842,30.3666661156547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Price Dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="244,80.8"
+          Id="Package\Load Price Dimension\Get Prices from Staging table"
+          TopLeft="492,64" />
+        <NodeLayout
+          Size="236.8,57.6"
+          Id="Package\Load Price Dimension\Load Prices to DimPrice table"
+          TopLeft="495,229" />
+        <EdgeLayout
+          Id="Package\Load Price Dimension.Paths[OLE DB Source Output]"
+          TopLeft="613.7,144.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84.2"
+              Start="0,0"
+              End="0,76.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Price Dimension\Get Prices from Staging table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Price Dimension\Load Prices to DimPrice table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load PublishedYear Dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="303.2,41.6"
+          Id="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table"
+          TopLeft="495,229" />
+        <NodeLayout
+          Size="257.6,41.6"
+          Id="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table"
+          TopLeft="492,64" />
+        <EdgeLayout
+          Id="Package\Load PublishedYear Dimension.Paths[OLE DB Source Output]"
+          TopLeft="620.8,105.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.8000000000001,123.4"
+              Start="0,0"
+              End="25.8000000000001,115.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.7"
+                    Point2="0,61.7"
+                    Point3="4,61.7" />
+                  <mssgle:LineSegment
+                    End="21.8000000000001,61.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.8000000000001,61.7"
+                    Point2="25.8000000000001,61.7"
+                    Point3="25.8000000000001,65.7" />
+                  <mssgle:LineSegment
+                    End="25.8000000000001,115.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load PublishedYear Dimension\Load PublishedYears to DimPublishedYear table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load PublishedYear Dimension\Get PublishedYears from Staging table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Rating Dimension">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Load Rating Dimension\Load Rating to DimRating table"
+          TopLeft="495,229" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Load Rating Dimension\Get Rating from Staging table"
+          TopLeft="492,64" />
+        <EdgeLayout
+          Id="Package\Load Rating Dimension.Paths[OLE DB Source Output]"
+          TopLeft="602.9,105.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,123.4"
+              Start="0,0"
+              End="0,115.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,115.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Rating Dimension\Load Rating to DimRating table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Rating Dimension\Get Rating from Staging table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load FactCourse table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Load FactCourse table\Get Staging Data"
+          TopLeft="493.333333333333,105.833333333333" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Load FactCourse table\Load FactCourse Data"
+          TopLeft="484.5,228.333333333333" />
+        <EdgeLayout
+          Id="Package\Load FactCourse table.Paths[OLE DB Source Output]"
+          TopLeft="573.916666666667,147.433333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.9"
+              Start="0,0"
+              End="0,73.4">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.4" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCourse table\Get Staging Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactCourse table\Load FactCourse Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
